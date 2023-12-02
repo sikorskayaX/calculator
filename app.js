@@ -33,18 +33,28 @@
                     innerEquation.innerHTML += sign;
                 }
             }
-            else
+            else if (button.classList.contains("equal"))
             {
                 item1 = parseInt(item1);
                 item2 = parseInt(item2);
 
                 if(sign == "+"){
                     result = item1 + item2;
-                    innerResult.innerHTML = result;
+                    innerResult.innerHTML ="result: " + result;
                 }
 
                 item2 = "";
                 item1 = result;
+            }
+            else if (button.classList.contains("clear")){
+                item1 = "";
+                item2 = "";
+                isNum = true;
+                sign = "";
+                currentSymbol = "";
+                result = 0;
+                innerEquation.innerHTML = "equation:";
+                innerResult.innerHTML = "result: ";
             }
         })
     })
