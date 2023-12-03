@@ -43,6 +43,21 @@
                     innerResult.innerHTML ="result: " + result;
                 }
 
+                if(sign == "-"){
+                    result = item1 - item2;
+                    innerResult.innerHTML ="result: " + result;
+                }
+
+                if(sign == "/"){
+                    result = item1 / item2;
+                    innerResult.innerHTML ="result: " + result;
+                }
+
+                if(sign == "*"){
+                    result = item1 * item2;
+                    innerResult.innerHTML ="result: " + result;
+                }
+
                 item2 = "";
                 item1 = result;
             }
