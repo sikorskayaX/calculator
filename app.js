@@ -26,40 +26,52 @@
             }
             else if (button.classList.contains("operation"))
             {
-                isNum = false;
-                
+                if(isNum)
                 {
+                    sign = currentSymbol;
+                    if(sign == "sqrt"){
+                        result = Math.sqrt(parseInt(item1));
+                        innerResult.innerHTML ="result: " + result;
+                    }
+                    else{
+                        innerEquation.innerHTML += sign;
+                    }
+                    isNum = false;
+
+                }
+                else {
+                    item1 = parseInt(item1);
+                    item2 = parseInt(item2);
+    
+                    if(sign == "+"){
+                        result = item1 + item2;
+                        innerResult.innerHTML ="result: " + result;
+                    }
+    
+                    if(sign == "-"){
+                        result = item1 - item2;
+                        innerResult.innerHTML ="result: " + result;
+                    }
+    
+                    if(sign == "/"){
+                        result = item1 / item2;
+                        innerResult.innerHTML ="result: " + result;
+                    }
+    
+                    if(sign == "*"){
+                        result = item1 * item2;
+                        innerResult.innerHTML ="result: " + result;
+                    }
+    
+                    item2 = "";
+                    item1 = result;
                     sign = currentSymbol;
                     innerEquation.innerHTML += sign;
                 }
             }
             else if (button.classList.contains("equal"))
             {
-                item1 = parseInt(item1);
-                item2 = parseInt(item2);
-
-                if(sign == "+"){
-                    result = item1 + item2;
-                    innerResult.innerHTML ="result: " + result;
-                }
-
-                if(sign == "-"){
-                    result = item1 - item2;
-                    innerResult.innerHTML ="result: " + result;
-                }
-
-                if(sign == "/"){
-                    result = item1 / item2;
-                    innerResult.innerHTML ="result: " + result;
-                }
-
-                if(sign == "*"){
-                    result = item1 * item2;
-                    innerResult.innerHTML ="result: " + result;
-                }
-
-                item2 = "";
-                item1 = result;
+                solveResult(item1, item2, sign);
             }
             else if (button.classList.contains("clear")){
                 item1 = "";
@@ -72,6 +84,35 @@
                 innerResult.innerHTML = "result: ";
             }
         })
+
+        function solveResult(item1, item2, sign)
+        {
+            item1 = parseInt(item1);
+            item2 = parseInt(item2);
+
+            if(sign == "+"){
+                result = item1 + item2;
+                innerResult.innerHTML ="result: " + result;
+            }
+
+            if(sign == "-"){
+                result = item1 - item2;
+                innerResult.innerHTML ="result: " + result;
+            }
+
+            if(sign == "/"){
+                result = item1 / item2;
+                innerResult.innerHTML ="result: " + result;
+            }
+
+            if(sign == "*"){
+                result = item1 * item2;
+                innerResult.innerHTML ="result: " + result;
+            }
+
+            item2 = "";
+            item1 = result;
+        }
     })
 
 });
